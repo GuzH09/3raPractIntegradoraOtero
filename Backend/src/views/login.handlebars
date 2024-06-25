@@ -1,0 +1,27 @@
+<div class="box">
+    <h1>Login</h1>
+    <hr>
+
+    <form class="box" method="post" action="/api/sessions/login" rel="_parent">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <button type="submit">Login</button>
+    </form>
+    <span>
+        <a href="/api/sessions/github">
+            <button>Entrar con Github</button>
+        </a>
+    </span>
+    <span><a href="/register" target="_self">Register</a></span>
+</div>
+
+{{#if failLogin}}
+    <script type="text/javascript">
+        alert('Login Failed!');
+    </script>
+{{/if}}

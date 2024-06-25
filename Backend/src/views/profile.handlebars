@@ -1,0 +1,34 @@
+<div class="boxx">
+    <form class="boxx" method="get" action="/api/sessions/logout">
+        <button type="submit">Logout</button>
+    </form>
+    <form class="boxx" method="get" action="/allproducts">
+        <button type="submit">All Products</button>
+    </form>
+    <form class="boxx" method="get" action="/profile">
+        <button type="submit">Profile</button>
+    </form>
+    <form class="boxx" method="get" action="/carts/{{user.cart}}">
+        <button type="submit">Cart</button>
+    </form>
+    <form class="boxx" method="get" action="/chat">
+        <button type="submit">WebSocket Chat</button>
+    </form>
+    {{#if isAdmin}}
+    <form class="boxx" method="get" action="/realtimeproducts">
+        <button type="submit">Products Manager</button>
+    </form>
+    {{/if}}
+    <p><b>Bienvenido </b>{{user.role}} {{user.first_name}} {{user.last_name}}</p>
+</div>
+<div class="box">
+    <h1>Datos Basicos</h1>
+    <hr>
+    <div class="box">
+        <p><b>Rol:</b> {{user.role}}</p>
+        <p><b>Nombre:</b> {{user.first_name}}</p>
+        <p><b>Apellido:</b> {{user.last_name}}</p>
+        <p><b>Email:</b> {{user.email}}</p>
+        <p><b>Age:</b> {{user.age}}</p>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div>
+    {{#if result.isValid}}
+        <div id="products-view">
+            {{#each result.docs}}
+                <article>
+                    <h1>{{this.title}}</h1>
+                    <p>Precio: {{this.price}}</p>
+                    <p>Stock: {{this.stock}}</p>
+                    <p>Categoria: {{this.category}}</p>
+                    <button id="id-{{this._id}}-addbutton" class="add-button" onclick="addProduct('{{this._id}}');">Agregar al carrito</button>
+                </article>
+            {{/each}}
+        </div>
+        <div id="navigation-container">
+            
+            {{#if result.hasPrevPage}}
+                <div>
+                    <a href="{{result.prevLink}}"><< Anterior</a>
+                </div>
+            {{/if}}
+            {{#if result.hasNextPage}}
+                <div>
+                    <a href="{{result.nextLink}}">Siguiente >></a>
+                </div>
+            {{/if}}
+        </div>
+
+    {{else}}
+        <h2>No hay productos para mostrar</h2>
+    {{/if}}
+</div>

@@ -1,0 +1,49 @@
+* {
+    background: #090909;
+    color: white;
+}
+
+#products-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .625rem;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    margin: 10px;
+    padding: 10px;
+}
+
+#products-view article {
+    padding: 2px;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    width: 19%;
+}
+
+.add-button {
+    background-color: green;
+}
+
+#navigation-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .625rem;
+    margin: 10px;
+    padding: 10px;
+}
+
+#navigation-container div {
+    padding: 2px;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    width: 19%;
+}

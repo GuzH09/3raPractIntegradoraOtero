@@ -1,0 +1,78 @@
+<div class="box">
+    <form class="box" method="get" action="/api/sessions/logout">
+        <button type="submit">Logout</button>
+    </form>
+    <form class="box" method="get" action="/allproducts">
+        <button type="submit">All Products</button>
+    </form>
+    <form class="box" method="get" action="/profile">
+        <button type="submit">Profile</button>
+    </form>
+    <form class="box" method="get" action="/carts/{{user.cart}}">
+        <button type="submit">Cart</button>
+    </form>
+    <form class="box" method="get" action="/chat">
+        <button type="submit">WebSocket Chat</button>
+    </form>
+    {{#if isAdmin}}
+    <form class="box" method="get" action="/realtimeproducts">
+        <button type="submit">Products Manager</button>
+    </form>
+    {{/if}}
+    <p><b>Bienvenido </b>{{user.role}} {{user.first_name}} {{user.last_name}}</p>
+</div>
+<div class="form-screen">
+    <div class="form-box">
+        <h1>Agregar Productos</h1>
+        <div class="form-data">
+            {{!-- <form
+                class="form-data"
+                action="http://localhost:8080/api/products"
+                method="post"
+                enctype="multipart/form-data"
+            > --}}
+
+                <label for="title-input">Nombre del Producto</label>
+                <input id="title-input" class="title-input" type="text" name="title"/>
+
+                <label for="desc-input">Descripción del producto</label>
+                <input id="desc-input" class="desc-input" type="text" name="description"/>
+
+                <label for="code-input">Codigo</label>
+                <input id="code-input" class="code-input" type="text" name="code"/>
+
+                <label for="price-input">Precio</label>
+                <input id="price-input" class="price-input" type="number" name="price"/>
+
+                <label for="stock-input">Stock</label>
+                <input id="stock-input" class="stock-input" type="number" name="stock"/>
+
+                <label for="categ-input">Categoria</label>
+                <input id="categ-input" class="categ-input" type="text" name="category"/>
+
+                {{!-- <label class="file-label" for="thumbnails">Cargar una imagen</label>
+                <input type="file" name="thumbnails"/> --}}
+
+                <button class="addproduct-button" onclick="send();">Agregar Producto</button>
+
+                {{!-- <input id="button" type="submit" value="Agregar Producto"/> --}}
+
+            {{!-- </form> --}}
+        </div>
+    </div>
+</div>
+
+<div id="products-view">
+    {{#each products}}
+        <article>
+            <h1>{{this.title}}</h1>
+            <p>Precio: {{this.price}}</p>
+            <p>Stock: {{this.stock}}</p>
+            <p>Categoria: {{this.category}}</p>
+            <button id="id-{{this._id}}-button" class="delete-button" onclick="deleteProduct('{{this._id}}');">Eliminar</button>
+        </article>
+    {{/each}}
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/static/js/realTimeProducts.js"></script>

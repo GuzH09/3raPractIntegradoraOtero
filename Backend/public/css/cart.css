@@ -1,0 +1,40 @@
+* {
+    background: #090909;
+    color: white;
+}
+
+div {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .625rem;
+}
+
+.box {
+    display:flex;
+}
+
+.box form button {
+    background-color: white;
+    color: black;
+}
+
+.deleteproduct {
+    background-color: red;
+    margin-bottom: 5px;
+}
+
+article {
+    padding: 2px;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    width: 300px;
+}
+
+.ticketreceipt {
+    display: block;
+    text-align: center;
+}

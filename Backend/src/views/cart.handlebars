@@ -1,0 +1,51 @@
+<div class="box">
+    <form class="box" method="get" action="/api/sessions/logout">
+        <button type="submit">Logout</button>
+    </form>
+    <form class="box" method="get" action="/allproducts">
+        <button type="submit">All Products</button>
+    </form>
+    <form class="box" method="get" action="/profile">
+        <button type="submit">Profile</button>
+    </form>
+    <form class="box" method="get" action="/carts/{{user.cart}}">
+        <button type="submit">Cart</button>
+    </form>
+    <form class="box" method="get" action="/chat">
+        <button type="submit">WebSocket Chat</button>
+    </form>
+    {{#if isAdmin}}
+    <form class="box" method="get" action="/realtimeproducts">
+        <button type="submit">Products Manager</button>
+    </form>
+    {{/if}}
+    <p><b>Bienvenido </b>{{user.role}} {{user.first_name}} {{user.last_name}}</p>
+</div>
+<h1>ID Carrito: {{id}}</h1>
+{{#if ticket}}
+    <div class="ticketreceipt">
+        <p>{{ticket.code}}</p>
+        <p>{{ticket.purchase_datetime}}</p>
+        <p>{{ticket.amount}}</p>
+        <p>{{ticket.purchaser}}</p>
+    </div>
+{{/if}}
+<div>
+    {{#each products}}
+        <article>
+            <h1>{{this.product.title}}</h1>
+            <p>Cantidad: {{this.quantity}}</p>
+            <p>Precio: {{this.product.price}}</p>
+            <p>Stock: {{this.product.stock}}</p>
+            <p>Categoria: {{this.product.category}}</p>
+            <form method="post" action="/api/carts/{{../user.cart}}/product/{{this.product._id}}/delete">
+                <button class="deleteproduct" type="submit">Quitar del carrito</button>
+            </form>
+        </article>
+    {{/each}}
+</div>
+<div>
+    <form method="post" action="/api/carts/{{user.cart}}/purchase">
+        <button class="purchase" type="submit">Finalizar Compra</button>
+    </form>
+</div>

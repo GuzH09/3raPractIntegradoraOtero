@@ -1,2 +1,1 @@
-# 3raPractIntegradoraOtero
-2daPractIntegradoraOtero
+# 3ra Practica Integradora Coderhouse Backend

@@ -1,0 +1,32 @@
+<div class="boxx">
+    <form class="boxx" method="get" action="/api/sessions/logout">
+        <button type="submit">Logout</button>
+    </form>
+    <form class="boxx" method="get" action="/allproducts">
+        <button type="submit">All Products</button>
+    </form>
+    <form class="boxx" method="get" action="/profile">
+        <button type="submit">Profile</button>
+    </form>
+    <form class="boxx" method="get" action="/carts/{{user.cart}}">
+        <button type="submit">Cart</button>
+    </form>
+    <form class="boxx" method="get" action="/chat">
+        <button type="submit">WebSocket Chat</button>
+    </form>
+    <p><b>Bienvenido </b>{{user.role}} {{user.first_name}} {{user.last_name}}</p>
+</div>
+
+<h1>¡Hola Coders! Bienvenidos al CoderChat Comunitario</h1>
+
+<div class="box">
+    <input id="chatBox" name="chatBox" type="text">
+
+    <div class="boxMessages">
+        <div id="messagesLogs"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/static/js/chat.js"></script>
