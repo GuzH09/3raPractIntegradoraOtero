@@ -39,4 +39,8 @@ export default class UserController {
   async updateUser (uid, role) {
     return this.userService.updateUser(uid, role)
   }
+
+  async resetPassword (uid, password) {
+    return this.userService.resetPassword(uid, password)
+  }
 }

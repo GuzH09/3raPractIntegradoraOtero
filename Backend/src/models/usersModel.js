@@ -49,6 +49,17 @@ userSchema.pre('save', function () {
   this.password = createHash(this.password)
 })
 
+userSchema.pre('updateOne', async function (next) {
+  const update = this.getUpdate()
+
+  // Check if the password is being updated
+  if (update.password) {
+    update.password = await createHash(update.password)
+  }
+
+  next()
+})
+
 const userModel = mongoose.model(userCollection, userSchema)
 
 export default userModel

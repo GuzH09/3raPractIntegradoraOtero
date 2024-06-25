@@ -76,4 +76,13 @@ export default class UserService {
       return { error: error.message }
     }
   }
+
+  async resetPassword (uid, password) {
+    try {
+      await userModel.updateOne({ _id: uid }, { password })
+      return { success: 'User password reset.' }
+    } catch (error) {
+      return { error: error.message }
+    }
+  }
 }

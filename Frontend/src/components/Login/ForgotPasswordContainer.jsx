@@ -22,6 +22,7 @@ const ForgotPasswordContainer = () => {
 
       if (response.ok) {
         alert('Password reset link sent to your email.')
+        return navigate('/home')
       } else {
         console.error('Request failed with status', response.status)
       }

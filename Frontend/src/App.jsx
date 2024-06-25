@@ -5,6 +5,7 @@ import RegisterContainer from './components/Login/RegisterContainer'
 import MainContent from './components/MainContent/MainContent'
 import { AuthProvider } from './context/AuthContext'
 import ForgotPasswordContainer from './components/Login/ForgotPasswordContainer'
+import ResetPasswordContainer from './components/Login/ResetPasswordContainer'
 
 function App () {
   return (
@@ -16,6 +17,7 @@ function App () {
             <Route path="/login" element={<LoginContainer />} />
             <Route path="/register" element={<RegisterContainer />} />
             <Route path="/forgot-password" element={<ForgotPasswordContainer />} />
+            <Route path="/reset-password/:token" element={<ResetPasswordContainer />} />
             <Route path="/home/*" element={<MainContent />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
