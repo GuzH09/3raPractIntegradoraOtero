@@ -20,7 +20,7 @@ const Footer = () => {
         <p className="text-slate-300 font-extralight">Twitter</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 // import useProductImage from "../../hooks/useProductImage";
 
 const Item = ({ id, title, thumbnails, price, stock }) => {
@@ -24,24 +24,26 @@ const Item = ({ id, title, thumbnails, price, stock }) => {
       </section>
 
       <footer className="py-3">
-        {stock > 0 ? (
+        {stock > 0
+          ? (
           <Link
             className="rounded bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-600"
             to={`/home/item/${id}`}
           >
             Ver Detalle
           </Link>
-        ) : (
+            )
+          : (
           <button
             className="rounded bg-blue-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600"
             disabled={true}
           >
             No hay Stock
           </button>
-        )}
+            )}
       </footer>
     </article>
-  );
-};
+  )
+}
 
-export default Item;
+export default Item

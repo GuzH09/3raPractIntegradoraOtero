@@ -1,15 +1,15 @@
-import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-import cart from "./assets/shoppingcart.svg";
-import { CartContext } from "../../../context/CartContext";
+import cart from './assets/shoppingcart.svg'
+import { CartContext } from '../../../context/CartContext'
 
 const CartWidget = () => {
-  const { totalQuantity, fetchCartFromUser } = useContext(CartContext);
+  const { totalQuantity, fetchCartFromUser } = useContext(CartContext)
 
   useEffect(() => {
-    fetchCartFromUser();
-  }, [fetchCartFromUser]);
+    fetchCartFromUser()
+  }, [fetchCartFromUser])
 
   return (
     <Link to="/home/cart">
@@ -18,7 +18,7 @@ const CartWidget = () => {
         <img src={cart} alt="cart-widget" />
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default CartWidget;
+export default CartWidget

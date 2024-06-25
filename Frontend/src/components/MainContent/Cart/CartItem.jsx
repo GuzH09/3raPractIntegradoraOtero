@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
+import { useContext } from 'react'
+import { CartContext } from '../../../context/CartContext'
 
 const CartItem = ({ product, quantity }) => {
-  const { handleOnRemove } = useContext(CartContext);
+  const { handleOnRemove } = useContext(CartContext)
 
   return (
     <article className="flex w-full justify-between gap-3 items-center rounded bg-blue-50 py-4 px-4 my-2 text-xs font-medium text-blue-700 ring-1 ring-blue-600">
@@ -13,7 +13,7 @@ const CartItem = ({ product, quantity }) => {
           alt={product.title}
         />
       </picture>
-      
+
       <h2 className="w-1/6 font-bold text-center">{product.title}</h2>
 
       <h3 className="w-1/6 text-center">Cantidad: {quantity}</h3>
@@ -29,7 +29,7 @@ const CartItem = ({ product, quantity }) => {
         X
       </button>
     </article>
-  );
-};
+  )
+}
 
-export default CartItem;
+export default CartItem

@@ -1,5 +1,5 @@
-import ItemCount from "./ItemCount";
-import "../SpinnerLoader/SpinnerLoader.css";
+import ItemCount from './ItemCount'
+import '../SpinnerLoader/SpinnerLoader.css'
 
 const ItemDetail = ({
   _id,
@@ -8,9 +8,8 @@ const ItemDetail = ({
   category,
   description,
   price,
-  stock,
+  stock
 }) => {
-
   return (
     <article className="items-center flex flex-col">
       <header>
@@ -33,7 +32,7 @@ const ItemDetail = ({
       </footer>
 
     </article>
-  );
-};
+  )
+}
 
-export default ItemDetail;
+export default ItemDetail

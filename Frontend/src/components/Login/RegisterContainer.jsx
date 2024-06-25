@@ -1,50 +1,50 @@
-import { useState, useContext, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from "../../context/AuthContext";
+import { useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 
 const RegisterContainer = () => {
-  const [first_name, setFirstname] = useState("");
-  const [last_name, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
-  const [password, setPassword] = useState("");
-  const { isAuthenticated } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const [first_name, setFirstname] = useState('')
+  const [last_name, setLastname] = useState('')
+  const [email, setEmail] = useState('')
+  const [age, setAge] = useState('')
+  const [password, setPassword] = useState('')
+  const { isAuthenticated } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
-      const response = await fetch("http://localhost:8080/api/sessions/register", {
-        method: "POST",
+      const response = await fetch('http://localhost:8080/api/sessions/register', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ first_name, last_name, email, age, password }),
         credentials: 'include'
-      });
-      
+      })
+
       if (response.ok) {
-        navigate("/login");
+        navigate('/login')
       } else {
-        console.error("Request failed with status", response.status);
+        console.error('Request failed with status', response.status)
       }
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
 
   useEffect(() => {
     if (isAuthenticated) {
       // Redirect to home if already authenticated
-      return navigate('/home');
+      return navigate('/home')
     }
-  }, [isAuthenticated, navigate]);
-  
+  }, [isAuthenticated, navigate])
+
   return (
     <div className="bg-[#0d1117] w-full h-screen flex items-center flex-col justify-center gap-4">
       <div className="h-[120px] w-[120x] text-center flex flex-col justify-center gap-2">
-        <img src={"/images/logo.png"} className="h-full object-contain" />
+        <img src={'/images/logo.png'} className="h-full object-contain" />
         <h2 className="text-white">GuzH Tech Store</h2>
       </div>
       <div className="rounded-md border-1 border-[#30363d] flex flex-col items-center py-2 gap-3 w-1/3">
@@ -100,7 +100,7 @@ const RegisterContainer = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          
+
           <button type="submit" className="text-white rounded-md border-1 border-[#30363d] bg-[#21262d] p-1 text-sm w-2/6">Register</button>
         </form>
 
@@ -111,7 +111,7 @@ const RegisterContainer = () => {
 
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterContainer;
+export default RegisterContainer

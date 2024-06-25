@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
+import { useContext } from 'react'
+import { CartContext } from '../../../context/CartContext'
 
 const Checkout = () => {
-  const { ticket } = useContext(CartContext);
+  const { ticket } = useContext(CartContext)
 
   return (
     <div className="pt-4 px-56 flex flex-column items-center min-h-[81vh]">
@@ -15,7 +15,7 @@ const Checkout = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout
